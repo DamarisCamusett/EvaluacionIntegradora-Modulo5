@@ -6,7 +6,7 @@ public class Cliente {
 	private int cliente_id;
 	private String nombre;
 	private String apellido;
-	private String rutCliente;
+	private String rutcliente;
 	
 	//Constructor vacío
 	public Cliente() {
@@ -14,12 +14,12 @@ public class Cliente {
 	}
 	
 	//Constructor con parametros
-	public Cliente(int cliente_id, String nombre, String apellido, String rutCliente) {
+	public Cliente(int cliente_id, String nombre, String apellido, String rutcliente) {
 		super();
 		this.cliente_id = cliente_id;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.rutCliente = rutCliente;
+		this.rutcliente = rutcliente;
 	}
 	//Getter y Setter
 
@@ -35,8 +35,8 @@ public class Cliente {
 		return apellido;
 	}
 
-	public String getRutCliente() {
-		return rutCliente;
+	public String getRutcliente() {
+        return rutcliente;
 	}
 
 	public void setCliente_id(int cliente_id) {
@@ -51,9 +51,12 @@ public class Cliente {
 		this.apellido = apellido;
 	}
 
-	public void setRutCliente(String rutCliente) {
-		this.rutCliente = rutCliente;
+	public void setRutcliente(String rutcliente) {
+		this.rutcliente = rutcliente;
 	}
+
+	
+	
 }
 
 /* Datos utilizados en la base de datos:

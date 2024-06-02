@@ -20,7 +20,7 @@ public class DaoCuenta {
 	
 	//Para obtener datos de todas las cuentas
 	public List<Cuenta> obtenerTodaCuenta() {
-		String consultaSQL = "SELECT id, numeroCta, rutCliente, apodo, banco, saldo FROM cuenta";
+		String consultaSQL = "SELECT id, numeroCta, rut_cliente, apodo, banco, saldo FROM cuenta";
 		List<Cuenta> lista = new ArrayList<Cuenta>();
 		try {
 			Statement statement = connection.createStatement();
@@ -31,17 +31,17 @@ public class DaoCuenta {
 				Cuenta cuenta = new Cuenta();
 
 				int id = resultSet.getInt("id");
-                int numCta = resultSet.getInt("numeroCta");
-                String rutCliente = resultSet.getString("rutCliente");
+                int numeroCta = resultSet.getInt("numeroCta");
+                String rut_cliente = resultSet.getString("rut_cliente");
                 String apodo = resultSet.getString("apodo");
                 String banco = resultSet.getString("banco");
                 double saldo = resultSet.getDouble("saldo");
 
-				System.out.println("ID: " + id + ", Saldo: " + saldo + ", Banco: " + banco + ", Numero de Cuenta: " + numCta + ", Rut: " + rutCliente);
+				System.out.println("ID: " + id + ", Saldo: " + saldo + ", Banco: " + banco + ", Numero de cuenta: " + numeroCta + ", Rut: " + rut_cliente);
 
 				cuenta.setId(id);
-                cuenta.setNumeroCta(numCta);
-                cuenta.setRutCliente(rutCliente);
+                cuenta.setNumeroCta(numeroCta);
+                cuenta.setRut_cliente(rut_cliente);
                 cuenta.setApodo(apodo);
                 cuenta.setBanco(banco);
                 cuenta.setSaldo(saldo);
@@ -56,7 +56,23 @@ public class DaoCuenta {
 		return lista;
 	}
 	
-	//Para buscar por rut
+	//Para obtener datos por id
+		public double consultarCuentaId(int id ) {
+			String consulta = "SELECT id, saldo, banco, numeroCta, rut_cliente FROM cuenta WHERE id = ?";
+			try {
+				PreparedStatement ps = connection.prepareStatement(consulta);
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+				if (rs.next()) {
+					return rs.getDouble("saldo");
+				}
+			} catch (SQLException e) {
+				System.err.println("Error al consultar : " + e.getMessage());
+			}
+			return 0.0;
+		}
+	
+	/*Para buscar por rut
 	public Double consultarRut(String rutCliente) {
 		String consulta = "SELECT rutCliente FROM cuenta WHERE id = ?";
 		try {
@@ -70,23 +86,7 @@ public class DaoCuenta {
 			System.err.println("Error al realizar la busqueda: " + e.getMessage());
 		}
 		return 0.0;
-	}
-	
-	//Para obtener datos por id
-	public Double consultarCuentaId(int id) {
-		String consulta = "SELECT idcuenta, saldo, banco, numcuenta, run_cliente FROM cuenta WHERE idcuenta = ?";
-		try {
-			PreparedStatement ps = connection.prepareStatement(consulta);
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				return rs.getDouble("saldo");
-			}
-		} catch (SQLException e) {
-			System.err.println("Error al consultar el Producto: " + e.getMessage());
-		}
-		return 0.0;
-	}
+	}*/
 	
 	//Para poder cambiar el saldo de una cuenta
 	public void actualizarSaldoCuenta(int id, double saldo) {
@@ -102,16 +102,16 @@ public class DaoCuenta {
 		}
 	}
 	
-	//Para poder crear una nueva cuenta (int id, int numeroCta, String rutCliente, String apodo, String banco, double saldo)
+	/*Para poder crear una nueva cuenta (int id, int numeroCta, String rutCliente, String apodo, String banco, double saldo)
 	public void insertarNuevaCuenta(Cuenta cuenta) {
 
-		String consultaCuenta = "INSERT INTO cuenta (id, numeroCta, rutCliente, apodo, banco, saldo) VALUES (?, ?, ?, ?, ?)";
+		String consultaCuenta = "INSERT INTO cuenta (id, numeroCta, rut_cliente, apodo, banco, saldo) VALUES (?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement ps = connection.prepareStatement(consultaCuenta);
 			
 			ps.setInt(1, cuenta.getId());
 			ps.setInt(2, cuenta.getNumeroCta());
-			ps.setString(3, cuenta.getRutCliente());
+			ps.setString(3, cuenta.getRut_cliente());
 			ps.setString(4, cuenta.getApodo());
 			ps.setString(5, cuenta.getBanco());
 			ps.setDouble(6, cuenta.getSaldo());
@@ -122,9 +122,9 @@ public class DaoCuenta {
 		} catch (SQLException e) {
 			System.err.println("Error al crear la nueva cuenta: " + e.getMessage());
 		}
-	}
+	}*/
 	
-	//Para poder actualizar datos de la cuenta
+	/*Para poder actualizar datos de la cuenta
 	public void actualizarCuenta(Cuenta cuenta) {
 	}
 	
@@ -132,8 +132,13 @@ public class DaoCuenta {
 	public void eliminarCuenta(int id) {
 	}
 
-	public boolean retirarSaldo(int idCuenta, double montoRetiro) {
+	public boolean retirarSaldo(int id, double montoRetiro) {
 		return false;
 	}
+
+	/*public Object consultarRut_cliente(String rut_cliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 
 }

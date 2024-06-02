@@ -5,7 +5,7 @@ public class Cuenta {
 	//Declaración de variables
 	private int id;
 	private int numeroCta;
-	private String rutCliente;
+	private String rut_cliente;
 	private String apodo;
 	private String banco;
 	private double saldo;
@@ -16,11 +16,11 @@ public class Cuenta {
 	}
 	
 	//Constructor con parametros
-	public Cuenta(int id, int numeroCta, String rutCliente, String apodo, String banco, double saldo) {
+	public Cuenta(int id, int numeroCta, String rut_cliente, String apodo, String banco, double saldo) {
 		super();
 		this.id = id;
 		this.numeroCta = numeroCta;
-		this.rutCliente = rutCliente;
+		this.rut_cliente = rut_cliente;
 		this.apodo = apodo;
 		this.banco = banco;
 		this.saldo = saldo;
@@ -35,8 +35,8 @@ public class Cuenta {
 		return numeroCta;
 	}
 
-	public String getRutCliente() {
-		return rutCliente;
+	public String getRut_cliente() {
+		return rut_cliente;
 	}
 
 	public String getApodo() {
@@ -59,8 +59,8 @@ public class Cuenta {
 		this.numeroCta = numeroCta;
 	}
 
-	public void setRutCliente(String rutCliente) {
-		this.rutCliente = rutCliente;
+	public void setRut_cliente(String rut_cliente) {
+		this.rut_cliente = rut_cliente;
 	}
 
 	public void setApodo(String apodo) {
