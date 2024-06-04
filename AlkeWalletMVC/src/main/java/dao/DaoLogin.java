@@ -16,7 +16,7 @@ public class DaoLogin implements InterfaceLogin {
 		this.conexion = conexion;
 	}
 
-	@Override //Para poder validar el ingreso
+	@Override //Para poder validar el ingreso segun los registros de la base de datos
 	public boolean validarLogin(String user_rut, String contrasena) {
         String consulta = "SELECT user_rut, contrasena FROM usuario WHERE user_rut = ? and contrasena = ?";
         try {
@@ -27,7 +27,7 @@ public class DaoLogin implements InterfaceLogin {
             if (rs.next()) {
             	return true;
             }
-        } catch (SQLException e) {
+        } catch (SQLException e) { //Excepción en caso de error
             System.err.println("Error al consultar: " + e.getMessage());
         }
         

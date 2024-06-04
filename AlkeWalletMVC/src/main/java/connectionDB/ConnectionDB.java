@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class ConnectionDB {
     private static String url = "jdbc:mysql://localhost:3306/alkewallet_db"; //url de MySQL
     private static String usuario = "root"; //Nombre de usuario
-    private static String password = ""; //Contraseña, si no tiene contraseña se deja solo las comillas pass = ""
+    private static String password = "Dami29"; //Contraseña, si no tiene contraseña se deja solo las comillas pass = ""
 
 
 	public static Connection establecerConexion() {

@@ -46,7 +46,6 @@ public class RetirarController extends HttpServlet {
 	}
 
 	// Metodo doGet
-	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

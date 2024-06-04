@@ -35,7 +35,7 @@ public class DepositController extends HttpServlet {
 
 		// public void actualizarSaldo(int id, double saldo)
 		DaoCuenta dao = new DaoCuenta(connection);
-		double saldoActual = dao.consultarCuentaId(1);
+		double saldoActual = dao.consultarCuentaId(1); //determina cuantos usuarios pueden ingresar con rut y pasword
 		saldoActual = saldoActual + cuenta.getSaldo();
 
 		dao.actualizarSaldoCuenta(1, saldoActual);

@@ -20,7 +20,7 @@ import models.Cuenta;
 public class CuentaController extends HttpServlet {
     private static final long serialVersionUID = 5004172393132837109L;
 
-       // Constructor
+ 
      // Método doPost de HttpServlet
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
