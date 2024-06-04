@@ -18,7 +18,7 @@
       <li>Usuario: 12345678-9</li>
       <li>Password: 11223344</li>
     </ul> 
-
+<p>También se pueden utilizar los registros que se encuentran dentro de la tabla "cuenta": </p>
  <img src="/img-readme/Captura de pantalla 2024-06-04 185046.png" alt="Tabla-Cuenta">
 
 <p>Aún quedan cosas pendientes como la conexión directa a la base de datos y solucionar unos problemas con los controladores, durante el día haré lo posible para tenerlo. </p>
